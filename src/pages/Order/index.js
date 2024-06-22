@@ -18,10 +18,7 @@ import {
   createOrder,
   fetchMenuOrder,
   fetchTableCategory,
-<<<<<<< HEAD
-=======
   getAllAreaOrder,
->>>>>>> 76f17e58ef1e7542a2c30771fe414c7dca16e374
   getCategoryOrder,
   getMenuByCategory,
   getMenuBySearch,
@@ -99,10 +96,7 @@ const Order = () => {
     const fetchArea = async () => {
       try {
         const res = await getAllArea();
-<<<<<<< HEAD
-=======
         // const res = await getAllAreaOrder();
->>>>>>> 76f17e58ef1e7542a2c30771fe414c7dca16e374
         setGetArea(
           res.data?.map((item) => {
             return {

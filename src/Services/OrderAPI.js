@@ -73,3 +73,11 @@ export const getHistoryOrder = () => {
 export const getBillHistory = (id) => {
   return ApiOrderService.get(`/admin/order/history/print-bill?order=${id}`);
 };
+
+export const getPromotion = () => {
+  return ApiOrderService.get(`/order/promotion`);
+};
+
+export const applyPromotion = (body) => {
+  return ApiOrderService.post(`/order/apply-promotion`, body);
+};

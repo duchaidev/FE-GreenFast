@@ -6,3 +6,10 @@ export const fetchQuantityNotifi = () => {
 export const fetchDataNotifi = () => {
   return ApiOrderService.get("/notification/get-notifications");
 };
+export const verifyMail = (body) => {
+  return ApiOrderService.post("user/verify-email", body);
+};
+
+export const verifyOtp = (body) => {
+  return ApiOrderService.post("user/verify-otp-email", body);
+};
