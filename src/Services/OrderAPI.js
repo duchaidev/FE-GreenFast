@@ -44,6 +44,10 @@ export const moveTable = (from, to) => {
   return ApiOrderService.get(`/admin/order/move-table?from=${from}&to=${to}`);
 };
 
+export const getAllAreaOrder = () => {
+  return ApiOrderService.get("/order/area/get-all");
+};
+
 export const getRevenus = (start, to) => {
   return ApiOrderService.get(
     `${

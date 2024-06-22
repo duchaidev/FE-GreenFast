@@ -138,9 +138,15 @@ const OrderManagement = () => {
 
   const columnorder = [
     {
+<<<<<<< HEAD
       title: "Id món",
       dataIndex: "_id",
       key: "_id",
+=======
+      title: "Tên món",
+      dataIndex: "name",
+      key: "name",
+>>>>>>> 76f17e58ef1e7542a2c30771fe414c7dca16e374
       align: "center",
     },
     {
@@ -321,12 +327,61 @@ const OrderManagement = () => {
               name="form"
               onClick={onFinish}
             >
+<<<<<<< HEAD
               Đóng bàn
+=======
+              Thanh toán
+>>>>>>> 76f17e58ef1e7542a2c30771fe414c7dca16e374
             </Button>,
           ]}
           bodyStyle={{ height: "1280" }}
         >
           <Form layout="vertical" form={form} name="form">
+<<<<<<< HEAD
+=======
+            {orderDetail?.order_detail?.length ? (
+              <div className="ant_body">
+                <div className="flex flex-col gap-1">
+                  <span>
+                    Thời gian đặt:{"  "}
+                    <span className="font-semibold">
+                      {dayjs(orderDetail?.checkin).format("DD-MM-YYYY")}
+                    </span>
+                  </span>
+
+                  <span>
+                    Người đặt:{" "}
+                    <span className="font-semibold">
+                      {" "}
+                      {orderDetail?.order_detail?.length > 0 &&
+                        orderDetail?.order_detail[0]?.order_person?.name}{" "}
+                    </span>
+                  </span>
+                </div>
+                <p className="py-2 font-semibold">Danh sách món</p>
+                <Table
+                  columns={columnorder}
+                  pagination={false}
+                  dataSource={
+                    orderDetail?.order_detail?.length > 0 &&
+                    orderDetail?.order_detail[0]?.menu?.length > 0 &&
+                    orderDetail?.order_detail[0].menu.map((item, index) => {
+                      return { ...item, key: index };
+                    })
+                  }
+                  scroll={{ x: "max-content" }}
+                />
+                <p className="justify-end flex gap-2 mt-3">
+                  <span>Tổng giá:</span>
+                  <span className="font-semibold text-green-700">
+                    {orderDetail?.subtotal.toLocaleString("vi-VN", {})} VNĐ
+                  </span>
+                </p>
+              </div>
+            ) : (
+              <div>Bàn trống</div>
+            )}
+>>>>>>> 76f17e58ef1e7542a2c30771fe414c7dca16e374
             <Row>
               <Col span={24}>
                 <Form.Item label="Loại thanh toán" name="payment_method">
@@ -351,7 +406,32 @@ const OrderManagement = () => {
                   <Input placeholder="Nhập note (Nếu có)" />
                 </Form.Item>
               </Col>
+<<<<<<< HEAD
             </Row>
+=======
+              <Col span={24}>
+                <Form.Item label="Khuyến mãi" name="note">
+                  <Select
+                    defaultValue="10"
+                    style={{ width: 220 }}
+                    // onChange={handleChange}
+                    options={[
+                      { value: "10", label: "Giảm giá 10%" },
+                      { value: "lucy", label: "Lucy" },
+                      { value: "Yiminghe", label: "yiminghe" },
+                      { value: "disabled", label: "Disabled", disabled: true },
+                    ]}
+                  />
+                </Form.Item>
+              </Col>
+            </Row>
+            <p className="justify-end flex gap-2 mb-3">
+              <span>Số tiền phải thanh toán:</span>
+              <span className="font-semibold text-green-700">
+                {orderDetail?.subtotal.toLocaleString("vi-VN", {})} VNĐ
+              </span>
+            </p>
+>>>>>>> 76f17e58ef1e7542a2c30771fe414c7dca16e374
           </Form>
         </Modal>
       </div>
